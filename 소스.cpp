@@ -39,7 +39,6 @@ private:
 		}
 
 		++m_nSeqNumber;
-
 		char szMessage[128] = { 0, };
 		sprintf_s(szMessage, 128 - 1, "%d - Send Message", m_nSeqNumber); // 0부터 6까지 발신하기 위해 szMessage에 숫자(m_nSeqNumber) 삽입
 		// 전역 async_write를 통해 비동기로 메시지 발신 후 handle_write 함수 실행
@@ -82,7 +81,7 @@ private:
 
 	void handle_write(const boost::system::error_code&, size_t)
 	{
-
+		cout << "전송함" << endl;
 	}
 
 	void handle_receive(const boost::system::error_code& error, size_t byte_transferred)
